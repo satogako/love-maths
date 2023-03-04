@@ -16,10 +16,23 @@ document.addEventListener('DOMContentLoaded', function() {
         
     }
 
+    //Creates listener for button Enter after put right answer to the answer-box
+    document.getElementById('answer-box').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            checkAnswer();
+        }
+    })
+
     runGame('addition');
 })
 
 function runGame(gameType) {
+
+    //creates ampty answer-box before start game
+    document.getElementById('answer-box').value = '';
+
+    //insert the cursor into the answer-box
+    document.getElementById('answer-box').focus();
 
     //Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
